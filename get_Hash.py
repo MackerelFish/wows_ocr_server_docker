@@ -36,7 +36,8 @@ def pHash(img):
     return hash
 def get_MD5Hash(path):
     path_list = os.listdir(path)
-    with open(path+'../data.json','r') as f:
+    data_file_path = os.path.join(path, '../data.json')
+    with open(data_file_path,'r') as f:
         jsonData = f.read()
         f.close()
         # print(jsonData)
@@ -68,7 +69,7 @@ def get_MD5Hash(path):
                     if wirte_if:
                         jishu = jishu + 1
                         text.update({filename.replace('.jpg',''):str(Hash)})
-                        with open(path+'../data.json','w') as f:
+                        with open(data_file_path,'w') as f:
                             f.write(str(text).replace('\'','\"'))
                             f.close()
     print('Add_Data:',jishu,'Data_Long:',len(text))
