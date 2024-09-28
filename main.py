@@ -18,8 +18,7 @@ import get_Hash
 from paddleocr import PaddleOCR
 from distutils.util import strtobool
 
-main_path = os.getcwd()
-img_path = '{main_path}/save/'
+img_path = '/wows_ocr/save/'
 
 def reponse(*, code=200,data: Union[list, dict, str],message="Success") -> Response:
     return JSONResponse(
