@@ -1,7 +1,5 @@
 # 使用 Python 3.8 作为基础镜像
 FROM python:3.8
-# 设置环境变量以避免交互式提示
-ENV DEBIAN_FRONTEND=noninteractive
 # 更新包列表并安装 libGL.so.1
 RUN apt-get update && \
     apt-get install -y libgl1-mesa-glx && \
