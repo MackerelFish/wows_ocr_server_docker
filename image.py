@@ -40,6 +40,8 @@ for i in range(2):
     img_size_min[i] = int(img_size_min[i])
 
 def dowm(string):
+    if 'cn&rkey' in string:
+        return None
     data = requests.get(string,proxies = { "http": None, "https": None})
     return data.content
 
