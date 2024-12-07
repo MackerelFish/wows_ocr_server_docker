@@ -11,6 +11,11 @@ wows-stats-bot水表插件，图片OCR_API服务器
 ```
 docker pull mackerelfish/wows-ocr-web:cpu
 ```
+国内用户连不上官方docker源可使用腾讯云镜像仓库下载并添加镜像别名
+```
+docker pull ccr.ccs.tencentyun.com/mackerel/wows:wows-ocr
+docker tag ccr.ccs.tencentyun.com/mackerel/wows:wows-ocr mackerelfish/wows-ocr-web:cpu
+```
 2.启动docker容器，-v映射你自己的文件路径
 ```
 docker run -d \
