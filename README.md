@@ -4,6 +4,12 @@
 wows-stats-bot水表插件，图片OCR_API服务器
 采用fastapi框架+paddleocr进行识别
 
+本项目为窝窝屎水表机器人HikariBot的额外功能支持，使用前请先安装HikariBot
+
+Nonebot2版本HikariBot https://github.com/benx1n/HikariBot
+
+Nonebot1版本HikariBot https://github.com/benx1n/wows-stats-bot
+
 
 #### 安装教程
 
