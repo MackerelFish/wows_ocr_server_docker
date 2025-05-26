@@ -40,10 +40,23 @@ for i in range(2):
     img_size_min[i] = int(img_size_min[i])
 
 def dowm(string):
-    if 'cn&rkey' in string:
+    try:
+        data = requests.get(
+                string,
+                timeout=5,
+                headers={'User-Agent': 'Mozilla/5.0'},
+                proxies={"http": None, "https": None},
+                verify=False
+            )
+        if data.status_code == 400:
+            print(f"HTTP 400错误 - 请求参数有误: {string}")
+            return None
+        data.raise_for_status()
+        #data = requests.get(string,proxies = { "http": None, "https": None})
+        return data.content
+    except Exception as e:
+        print(e)
         return None
-    data = requests.get(string,proxies = { "http": None, "https": None})
-    return data.content
 
 def timer1():
     global path
@@ -90,6 +103,8 @@ def img_dow(image_url,file_name,file_name_S):
             data = imgdata[datatag]
             break
     # data = requests.get(image_url).content
+    if data is None:
+        return "图像不符合"
     datalong = len(data)/1024/1024
     if datalong > 1:
         datalongstr = str(round(datalong,4))+'MB'
