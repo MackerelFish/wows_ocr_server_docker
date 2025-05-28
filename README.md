@@ -11,6 +11,9 @@ Nonebot2版本HikariBot https://github.com/benx1n/HikariBot
 Nonebot1版本HikariBot https://github.com/benx1n/wows-stats-bot
 
 
+## 本项目仅可运行在支持avx指令集的cpu的机器上面
+
+
 #### 安装教程
 
 1.拉取docker镜像
