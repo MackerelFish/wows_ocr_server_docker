@@ -13,7 +13,7 @@ COPY ./ /wows_ocr
 # 安装依赖
 RUN pip install -r requirement.txt
 # 安装 PaddlePaddle
-RUN pip install paddlepaddle==2.6.1 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+RUN pip install paddlepaddle==2.6.2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
 # 指定容器启动时执行的命令
 CMD ["python", "main.py"]
 
