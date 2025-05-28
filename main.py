@@ -36,10 +36,12 @@ config = json.load(open('./config.json', 'r', encoding='utf8'))
 # 使用当前模块的名称构建Flask app
 app = FastAPI()
 
-if not(os.path.exists('./data.json')):
-        with open('./data.json','w') as f:
-            f.write('{}')
-            f.close()
+if not os.path.exists('./data.json'):
+    try:
+        with open('./data.json', 'w', encoding='utf-8') as f:
+            json.dump({}, f)
+    except IOError as e:
+        print(f"创建文件失败: {e}")
 @app.post('/OCR/') #OCR服务
 def get_item_list(url:str = Form()):
     print(url)
