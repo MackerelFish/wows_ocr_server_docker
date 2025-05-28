@@ -2,8 +2,13 @@
 FROM python:3.8.19-slim-bullseye
 # 更新包列表并安装 libGL.so.1
 RUN apt-get update && \
-    apt-get install -y libgl1-mesa-glx && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        python3-dev \
+        libgl1-mesa-glx \
+        libglib2.0-0 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 # 升级 pip
 RUN pip install --upgrade pip
 # 设置工作目录
