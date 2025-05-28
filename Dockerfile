@@ -1,5 +1,5 @@
-# 使用 Python 3.10 作为基础镜像
-FROM python:3.10.17-slim-bookworm
+# 使用 Python 3.8 作为基础镜像
+FROM python:3.8.19-slim-bullseye
 # 更新包列表并安装 libGL.so.1
 RUN apt-get update && \
     apt-get install -y libgl1-mesa-glx && \
