@@ -42,20 +42,23 @@ for i in range(2):
 def dowm(string):
     try:
         data = requests.get(
-                string,
-                timeout=5,
-                headers={'User-Agent': 'Mozilla/5.0'},
-                proxies={"http": None, "https": None},
-                verify=False
-            )
-        if data.status_code == 400:
-            print(f"HTTP 400错误 - 请求参数有误: {string}")
+            string,
+            timeout=5,
+            headers={'User-Agent': 'Mozilla/5.0'},
+            proxies={"http": None, "https": None},
+            verify=False
+        )
+        if 400 <= data.status_code < 500:
+            print(f"HTTP {data.status_code}错误 - 客户端请求异常: {string}")
             return None
         data.raise_for_status()
         #data = requests.get(string,proxies = { "http": None, "https": None})
         return data.content
+    except requests.exceptions.RequestException as e:
+        print(f"请求失败: {str(e)}")
+        return None
     except Exception as e:
-        print(e)
+        print(f"未知错误: {str(e)}")
         return None
 
 def timer1():
